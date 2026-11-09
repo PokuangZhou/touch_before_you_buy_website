@@ -22,26 +22,21 @@ h1 {
   margin: 0 0 6px;
 }
 
-/* Title: bold short name on top, full subtitle below */
+/* Title: matches the main figure's style (bold name, regular subtitle) */
 .project-title {
-  font-weight: 700;
-  letter-spacing: -1px;
-  line-height: 1.15;
-  margin-bottom: 0;
+  color: #000;
+  font-size: 38px;
+  line-height: 1.25;
+  letter-spacing: -0.3px;
+  margin: 8px 0 12px;
 }
 
 .title-main {
-  font-size: 46px;
+  font-weight: 700;
 }
 
 .title-sub {
-  display: inline-block;
-  margin-top: 8px;
-  font-size: 30px;
-  font-weight: 600;
-  letter-spacing: -0.5px;
-  line-height: 1.25;
-  color: #333;
+  font-weight: 400;
 }
 
 .jump-links {
@@ -391,12 +386,8 @@ pre {
 }
 
 @media (max-width: 700px) {
-  .title-main {
-    font-size: 28px;
-  }
-
-  .title-sub {
-    font-size: 21px;
+  .project-title {
+    font-size: 22px;
   }
 
   .title-break {
