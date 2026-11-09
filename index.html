@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Touch Before You Buy: Humanoid Agents Grounding Decisions Through Physical Interaction via Foundation Model</title>
+  <meta name="description" content="A tactile-enabled humanoid agent that physically inspects objects and reports properties beyond visual appearance, guided by the COSMOS world foundation model.">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav class="side-nav" aria-label="Page sections">
+  <a href="#top">Home</a>
+  <a href="#introduction">Introduction</a>
+  <a href="#video-gallery">Video Gallery</a>
+  <a href="#bibtex">BibTeX</a>
+</nav>
+
+<header id="top">
+  <h1 class="project-title">
+    <span class="title-main">Touch Before You Buy:</span><br>
+    <span class="title-sub">Humanoid Agents Grounding Decisions Through<br class="title-break"> Physical Interaction via Foundation Model</span>
+  </h1>
+
+  <nav class="jump-links" aria-label="Project links">
+    <span class="jump-soon" title="Coming soon">paper (coming soon)</span>
+    <a href="#video-gallery">video</a>
+  </nav>
+
+  <a class="figure-link" href="media/main_real_fig.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open the full-resolution figure (PDF)">
+    <img src="media/main_real_fig.webp" class="content-media" width="1800" height="1761"
+      alt="Overview: a user shopping online asks a tactile-enabled humanoid agent, guided by a world foundation model, to inspect garments; the agent returns natural-language, material and texture, and virtual try-on feedback. The same system also assesses fruit firmness and cosmetic bottle weight.">
+  </a>
+  <p class="figure-note">Click the figure to open the full-resolution PDF.</p>
+
+  <div class="pub-row">
+    <div class="pub-box">
+      <p class="pub-title">Touch Before You Buy: Humanoid Agents Grounding Decisions Through Physical Interaction via Foundation Model</p>
+      <p class="pub-authors">
+        <a href="https://pokuangzhou.github.io/website/" target="_blank" rel="noopener noreferrer">Pokuang Zhou</a>,
+        <span>Yicong Wang</span>,
+        <a href="https://zhangzhiyuanzhang.github.io/personal_website/" target="_blank" rel="noopener noreferrer">Zhiyuan Zhang</a>,
+        <a href="https://www.purduemars.com/people" target="_blank" rel="noopener noreferrer">Yu She</a>
+      </p>
+      <p class="pub-affiliations">Purdue University, USA</p>
+
+      <div class="affiliation-logos">
+        <a href="https://www.purdue.edu/" target="_blank" rel="noopener noreferrer">
+          <img src="media/purdue_logo.svg" alt="Purdue University">
+        </a>
+      </div>
+      <p class="pub-tag pub-tag-soon">Paper Coming Soon</p>
+    </div>
+  </div>
+</header>
+
+<section id="introduction">
+  <h2>Introduction</h2>
+  <p>Humanoid agents offer a promising approach to extending human perception and interaction into remote and open-world environments. While existing research has largely focused on vision-based perception and decision-making, understanding the physical properties of objects through direct interaction remains relatively underexplored. In this work, we propose a tactile-enabled humanoid agent framework that physically interacts with objects and provides users with information beyond visual appearance. Our system employs a wheeled semi-humanoid robot equipped with dual arms and GelSight-based tactile sensors integrated into parallel-jaw grippers. Leveraging the COSMOS world foundation model, the agent performs reasoning and interaction planning to guide active physical exploration. Through tactile interaction, the agent can assess physical properties such as surface texture, material characteristics, and thickness. We explore online clothing shopping as a representative application, where users can remotely request tactile inspections of garments located in warehouses or on retail shelves. The system provides three types of feedback: (1) natural-language descriptions of tactile observations and physical properties, (2) material and thickness information supported by illustrative images, and (3) virtual try-on results and multi-view images to visualize selected garments from different perspectives. Together, these capabilities explore how tactile-grounded humanoid agents, guided by world foundation models, can bridge the gap between digital information and physical experience.</p>
+</section>
+
+<section id="video-gallery" class="media-gallery">
+  <h2>Video Gallery</h2>
+  <p class="section-subtitle">Real-world demonstrations of the tactile-enabled humanoid agent.</p>
+
+  <div class="gallery-tabs" role="tablist" aria-label="Video gallery">
+    <button class="gallery-btn active" type="button" role="tab" aria-selected="true" data-src="media/cloth.mp4" data-poster="media/cloth_poster.jpg" data-title="Clothing shopping">Clothing shopping</button>
+    <button class="gallery-btn" type="button" role="tab" aria-selected="false" data-src="media/strawberry.mp4" data-poster="media/strawberry_poster.jpg" data-title="Fruit firmness">Fruit firmness</button>
+    <button class="gallery-btn" type="button" role="tab" aria-selected="false" data-src="media/makeup.mp4" data-poster="media/makeup_poster.jpg" data-title="Cosmetic bottle weight">Cosmetic bottle weight</button>
+  </div>
+
+  <figure class="media-gallery-item fit-screen">
+    <h3 id="media-gallery-title">Clothing shopping</h3>
+    <video id="media-gallery-video" src="media/cloth.mp4" poster="media/cloth_poster.jpg" controls muted playsinline preload="metadata" aria-label="Clothing shopping"></video>
+  </figure>
+</section>
+
+<section id="bibtex">
+  <h2>BibTeX</h2>
+
+  <pre><code>@article{zhou2026touch,
+  title={Touch Before You Buy: Humanoid Agents Grounding Decisions Through Physical Interaction via Foundation Model},
+  author={Zhou, Pokuang and Wang, Yicong and Zhang, Zhiyuan and She, Yu},
+  year={2026}
+}</code></pre>
+</section>
+
+<script>
+  const galleryButtons = document.querySelectorAll('#video-gallery .gallery-btn');
+  const galleryTitle = document.getElementById('media-gallery-title');
+  const galleryVideo = document.getElementById('media-gallery-video');
+
+  galleryButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const { src, poster, title } = button.dataset;
+
+      galleryButtons.forEach((item) => {
+        item.classList.remove('active');
+        item.setAttribute('aria-selected', 'false');
+      });
+      button.classList.add('active');
+      button.setAttribute('aria-selected', 'true');
+      galleryTitle.textContent = title;
+
+      galleryVideo.poster = poster;
+      galleryVideo.src = src;
+      galleryVideo.setAttribute('aria-label', title);
+      galleryVideo.load();
+      galleryVideo.play().catch(() => {});
+    });
+  });
+</script>
+
+</body>
+</html>
